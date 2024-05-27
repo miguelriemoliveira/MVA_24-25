@@ -115,7 +115,7 @@ Crie uma imagem con 25 círculos de raio variável e em posições aleatórias.
 
 ## Exercício 6 - Histogramas
 
-Visualize o histograma da imagem **imagens/chessboard.jpg** e escolha o valor adequado para isolar as montanhas.
+Visualize o histograma da imagem **imagens/grey_lake.jpg** e escolha o valor adequado para isolar as montanhas.
 
 Use a biblioteca matplotlib.
 
