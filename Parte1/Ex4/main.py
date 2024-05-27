@@ -19,12 +19,12 @@ def main():
 
     x0 = w/2
     y0 = h/2
-    r = 15
+    r = 45
 
     for y in range(0, h):  # percorre todas as linhas
         for x in range(0, w):  # percorre todas as colunas
 
-            if (x-x0)**2 + (y-y0)**2 < r:  # estamos dentro da circ
+            if (x-x0)**2 + (y-y0)**2 < r**2:  # estamos dentro da circ
                 image[y, x] = 255
 
     cv2.imshow('Image', image)
