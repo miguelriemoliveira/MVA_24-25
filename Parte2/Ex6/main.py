@@ -30,54 +30,57 @@ def main():
     # ------------------------------------------------------
 
     # TODO Create a black image with 400x600
-    """
-    filename = '/home/mike/sharedVBWindows/MVA_6-24/MVA_24-25/Parte2/imagens/parrot.png'
+    filename = '/home/mike/sharedVBWindows/MVA_6-24/MVA_24-25/Parte2/imagens/chess.png'
     if not os.path.isfile(filename):
         print('filename ' + filename + ' does not exist')
+
     # Load the image
     image = cv2.imread(filename,  cv2.IMREAD_GRAYSCALE)
-    """
 
-    # criar imagem
-    image = np.zeros((500, 500)).astype(np.uint8)
-    image[200:260, 300:400] = 255
-    h, w = image.shape
+    # image = np.zeros((500, 500)).astype(np.uint8)
+    # image[200:260, 300:400] = 255
+    # h, w = image.shape
 
     # ------------------------------------------------------
     # Execution
     # ------------------------------------------------------
+    threshold = 1.5
 
-    # add noise
-    flip_flop = False  # init flip_flop
-    for x in range(0, w):
-        for y in range(0, h):
-            if random.random() > (1-0.2):  # add noise
-                if flip_flop:  # paint white (salt)
-                    image[y, x] = 255
-                else:  # paint black (pepper)
-                    image[y, x] = 0
-                flip_flop = not flip_flop  # invert flip flop
+    # define a filter for detecting vertical edges
+    Fx = np.asarray([[-1, 0, 1],
+                    [-2, 0, 2],
+                    [-1, 0, 1]], dtype=float)
+    print('Fx=\n' + str(Fx))
 
-    # Filtering
-    # F = np.ones((3, 3), dtype=float)*(1/9)  # equivalente a filtro de media
-    # F = np.ones((3, 3), dtype=float)*-1
-    F = np.ones((3, 3), dtype=float)*3
-    F[1, 1] = -99  # filtro pontos isolados
-    print('F=\n' + str(F))
+    result_x = filter2d(image.astype(float)/255, Fx)
 
-    result = filter2d(image/255, F)
+    mask_x = (np.abs(result_x) > threshold).astype(np.uint8)*255
 
-    mask_iso = (np.logical_or(result == 24, result == -99)).astype(np.uint8)*255
-    # mask_iso = (np.abs(result) == 8).astype(np.uint8)*255
+    # define a filter for detecting horizontal edges
+    Fy = np.asarray([[-1, 0, 1],
+                    [-2, 0, 2],
+                    [-1, 0, 1]], dtype=float)
+    Fy = Fy.transpose()
+    print('Fy=\n' + str(Fy))
 
-    window_name = 'original'
+    result_y = filter2d(image.astype(float)/255, Fy)
+
+    mask_y = (np.abs(result_y) > threshold).astype(np.uint8)*255
+
+    # ------------------------------------------------------
+    # Visualization
+    # ------------------------------------------------------
+
+    window_name = 'Image'
+    # cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow(window_name, w*4, h*4)
     cv2.imshow(window_name, image)
 
-    window_name = 'resultado'
-    cv2.imshow(window_name, result.astype(np.uint8)*255)
+    window_name = 'mask_x'
+    cv2.imshow(window_name, mask_x)
 
-    window_name = 'mask_iso'
-    cv2.imshow(window_name, mask_iso)
+    window_name = 'mask_y'
+    cv2.imshow(window_name, mask_y)
 
     # Wait for the user to press a key
     cv2.waitKey(0)
@@ -91,4 +94,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
