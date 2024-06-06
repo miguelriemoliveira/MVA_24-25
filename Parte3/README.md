@@ -7,8 +7,7 @@ Miguel Riem Oliveira <mriem@ua.pt>
 
 # Sumário
 
- - Equalização de histogramas
- - Deteção de arestas
+ - Morfologia binária
 
 ## Exercício 1 - Dilatação
 
