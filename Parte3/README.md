@@ -19,6 +19,12 @@ Quando aplicada a imagens binárias, a operação de dilatação morfológica ex
 
 O que acontece se você aplicar repetidamente a operação de dilatação usando o mesmo elemento estruturante?
 
+## Exercício 1.5
+
+Executar uma dilatação progressiva até que o número de pixeis brancos da imagem seja superior a 75% do total de píxeis da imagem.
+
+
+
 ## Exercício 2 - Erosão
 
 Quando aplicada a imagens binárias, a operação de erosão morfológica essencialmente reduz os limites das regiões de primeiro plano. Dada a imagem em nível de cinza **wdg2.bmp**, execute a seguinte sequência de operações:
