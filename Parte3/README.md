@@ -76,5 +76,7 @@ Segmente a imagem lena.jpg, utilizando como seed o pixel (430, 30) e permitindo 
 
 Permita que o usuário selecione interativamente o pixel inicial para segmentação de região. Teste a segmentação de região interativa usando as imagens **wdg2.bmp**, **tools_2.png** e **lena.jpg**.
 
+Adicione ainda uma máscara vinda de uma deteção de arestas com o algoritmo Canny.
+
 
 
