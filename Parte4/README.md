@@ -57,3 +57,16 @@ Finalmente, faça um efeito de anoitecer progressivo variando o valor do divisor
 
 Grave um vídeo com o processo de anoitecer da imagem.
 
+## Exercício 6 - Controlo de tráfego
+
+![Highway](docs/highway.png)
+
+Utilize o vídeo **traffic.mp4** para fazer um sistema de contagem de veículos.
+O objetivo é saber quantos veículos passaram.
+
+## Exercício 7 - Controlo de tráfego
+
+Obtenha a contagem separada para cada faixa de rodagem.
+
+O programa deve imprimir um relatório com os eventos de passagem de veículos, com a faixa de rodagem e a cor do veículo.
+
