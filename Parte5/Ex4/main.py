@@ -128,7 +128,7 @@ def main():
     cv2.setTrackbarPos('bmax', 'Mask', color_limits['bmax'])
 
     # split channels
-    R, G, B = cv2.split(image)
+    B, G, R = cv2.split(image)
     # R = image[:,:,2]
 
     while True:
