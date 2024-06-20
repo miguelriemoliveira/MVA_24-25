@@ -17,34 +17,39 @@ import matplotlib.pyplot as plt
 # def trackbarCallback(value, color, max_or_min):
 # pass
 
-def trackbar_rmin(value, color_limits):
-    print('Changed trackbar rmin value to ' + str(value))
-    color_limits['rmin'] = value
+def trackbar(value, color_limits, color_key):
+    print('Changed trackbar ' + color_key+' value to ' + str(value))
+    color_limits[color_key] = value
 
 
-def trackbar_rmax(value, color_limits):
-    print('Changed trackbar rmax value to ' + str(value))
-    color_limits['rmax'] = value
+# def trackbar_rmin(value, color_limits):
+#     print('Changed trackbar rmin value to ' + str(value))
+#     color_limits['rmin'] = value
 
 
-def trackbar_gmin(value, color_limits):
-    print('Changed trackbar gmin value to ' + str(value))
-    color_limits['gmin'] = value
+# def trackbar_rmax(value, color_limits):
+#     print('Changed trackbar rmax value to ' + str(value))
+#     color_limits['rmax'] = value
 
 
-def trackbar_gmax(value, color_limits):
-    print('Changed trackbar gmax value to ' + str(value))
-    color_limits['gmax'] = value
+# def trackbar_gmin(value, color_limits):
+#     print('Changed trackbar gmin value to ' + str(value))
+#     color_limits['gmin'] = value
 
 
-def trackbar_bmin(value, color_limits):
-    print('Changed trackbar bmin value to ' + str(value))
-    color_limits['bmin'] = value
+# def trackbar_gmax(value, color_limits):
+#     print('Changed trackbar gmax value to ' + str(value))
+#     color_limits['gmax'] = value
 
 
-def trackbar_bmax(value, color_limits):
-    print('Changed trackbar bmax value to ' + str(value))
-    color_limits['bmax'] = value
+# def trackbar_bmin(value, color_limits):
+#     print('Changed trackbar bmin value to ' + str(value))
+#     color_limits['bmin'] = value
+
+
+# def trackbar_bmax(value, color_limits):
+#     print('Changed trackbar bmax value to ' + str(value))
+#     color_limits['bmax'] = value
 
 
 def main():
@@ -98,22 +103,28 @@ def main():
 
     # Create the trackbars
     cv2.namedWindow('Mask', cv2.WINDOW_GUI_NORMAL)
-    cv2.createTrackbar('rmin', 'Mask', 0, 255, partial(trackbar_rmin, color_limits=color_limits))
+    cv2.createTrackbar('rmin', 'Mask', 0, 255, partial(
+        trackbar, color_limits=color_limits, color_key='rmin'))
     cv2.setTrackbarPos('rmin', 'Mask', color_limits['rmin'])
 
-    cv2.createTrackbar('rmax', 'Mask', 0, 255, partial(trackbar_rmax, color_limits=color_limits))
+    cv2.createTrackbar('rmax', 'Mask', 0, 255, partial(
+        trackbar, color_limits=color_limits, color_key='rmax'))
     cv2.setTrackbarPos('rmax', 'Mask', color_limits['rmax'])
 
-    cv2.createTrackbar('gmin', 'Mask', 0, 255, partial(trackbar_gmin, color_limits=color_limits))
+    cv2.createTrackbar('gmin', 'Mask', 0, 255, partial(
+        trackbar, color_limits=color_limits, color_key='gmin'))
     cv2.setTrackbarPos('gmin', 'Mask', color_limits['gmin'])
 
-    cv2.createTrackbar('gmax', 'Mask', 0, 255, partial(trackbar_gmax, color_limits=color_limits))
+    cv2.createTrackbar('gmax', 'Mask', 0, 255, partial(
+        trackbar, color_limits=color_limits, color_key='gmax'))
     cv2.setTrackbarPos('gmax', 'Mask', color_limits['gmax'])
 
-    cv2.createTrackbar('bmin', 'Mask', 0, 255, partial(trackbar_bmin, color_limits=color_limits))
+    cv2.createTrackbar('bmin', 'Mask', 0, 255, partial(
+        trackbar, color_limits=color_limits, color_key='bmin'))
     cv2.setTrackbarPos('bmin', 'Mask', color_limits['bmin'])
 
-    cv2.createTrackbar('bmax', 'Mask', 0, 255, partial(trackbar_bmax, color_limits=color_limits))
+    cv2.createTrackbar('bmax', 'Mask', 0, 255, partial(
+        trackbar, color_limits=color_limits, color_key='bmax'))
     cv2.setTrackbarPos('bmax', 'Mask', color_limits['bmax'])
 
     # split channels
