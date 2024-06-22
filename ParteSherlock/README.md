@@ -84,12 +84,10 @@ Depois, usando o algoritmo **color presence** conte os comprimidos de todas as c
 Fazer reconhecimento de cor da imagem **fuses**.
 Pretende-se que seja gravada a imagem original a cores anotada com texto a indicar a cor detetada para cada fusível.
 
-
 ## Exercício 13
 
 Fazer reconhecimento de cor  das imagens na pasta **fruits**.
 Utilize o padrão de cores **color_pattern** para treinar as cores.
-
 
 ## Exercício 14
 
